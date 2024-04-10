@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Franie;
+}
+* {
+  box-sizing: border-box;
+  line-height: normal;
+  font-family: inherit;
+  margin: unset;
+}
+a {
+  display: block;
+}
+ul {
+  margin: 0;
+  margin-inline: unset !important;
+  padding: 0;
+  list-style: none;
+}
+.ReactModal__Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #6b6b6b;
+  border-radius: 10px;
+}
+.white_A700_1c_white_A700_1c_border {
+  border-image: linear-gradient(180deg, #ffffff1c, #ffffff1c) 1;
+}
+.gray_50_gray_50_00_border {
+  border-image: radial-gradient(180deg, #f8f8f8, #f8f8f800) 1;
+}
+.gray_900_04_gray_900_06_border {
+  border-image: linear-gradient(121deg, #191c31, #0f1320) 1;
+}
+.sectionScroller {
+  scroll-snap-type: y proximity;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.sectionScroller section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}

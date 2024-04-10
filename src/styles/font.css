@@ -1,0 +1,30 @@
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/ManropeRegular.ttf");
+  font-family: "Manrope";
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Franie';
+  font-style: 'italic';
+  src: local('Franie'), url("/public/fonts/woff/Franie-Italic.woff") format('woff');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+@font-face {
+  font-family: 'Franie';
+  font-style: 'black';
+  src: local('Franie'), url("/public/fonts/woff/Franie-Black.woff") format('woff');
+}
+@font-face {
+  font-family: 'Franie';
+  font-style: 'regular';
+  src: local('Franie'), url("/public/fonts/woff/Franie-Regular.woff") format('woff');
+}
+@font-face {
+  font-family: 'Franie';
+  font-style: 'semiBold';
+  src: local('Franie'), url("/public/fonts/woff/Franie-SemiBold.woff") format('woff');
+}
