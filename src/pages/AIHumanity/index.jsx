@@ -5,6 +5,7 @@ import ParticleBackground from "components/Background/particleBackground";
 import Logo from "components/logo";
 import HeaderMenu from "components/HeaderMenu";
 import SocialButtons from "components/SocialButtons";
+import FooterSection from "components/FooterSection";
 
 export default function AIHumanityPage() {
   return (
@@ -14,6 +15,7 @@ export default function AIHumanityPage() {
         <meta name="description" content="Web site created using create-react-app" />
       </Helmet>
       <div className="w-full sectionScroller" >
+        <section>
         <div className="h-[875px] md:h-auto bg-black-900_02 bg-[url(/public/images/img_hero.png)] bg-cover bg-no-repeat">
           <div className="h-[875px] md:h-auto bg-[url(/public/images/img_hero.png)] bg-cover bg-no-repeat relative">
             
@@ -23,76 +25,19 @@ export default function AIHumanityPage() {
                   <div className="flex md:flex-col justify-between items-center gap-5 p-5 border-white-A700_19 border-b-[0.5px] border-solid">
                     <div className="flex sm:flex-col justify-between items-center w-[48%] md:w-full ml-[60px] gap-5 md:ml-0">
                       <Logo/>
-                      {/* <div className="flex justify-center items-center w-[22%] sm:w-full gap-[9px]">
-                        <Img src="images/img_television.svg" alt="television_one" className="h-[28px]" />
-                        <Img src="images/img_settings.svg" alt="settings_one" className="h-[26px]" />
-                      </div>
-  
-                      <div className="flex items-center pl-3">
-                        <div className="flex items-start gap-1">
-                          <Heading size="s" as="p" className="tracking-[-0.14px] text-center">
-                            Products
-                          </Heading>
-                          <Img src="images/img_frame.svg" alt="image" className="h-[12px] w-[12px] mt-[3px]" />
-                        </div>
-                        <a href="#">
-                          <div className="flex ml-5 p-1.5">
-                            <Heading size="s" as="p" className="self-end tracking-[-0.14px] text-center">
-                              Blog
-                            </Heading>
-                          </div>
-                        </a>
-                        <a href="#">
-                          <div className="flex ml-2 p-1.5">
-                            <Heading size="s" as="p" className="self-end tracking-[-0.14px] text-center">
-                              Whitepaper
-                            </Heading>
-                          </div>
-                        </a>
-                        <a href="#">
-                          <div className="flex ml-2 p-1.5">
-                            <Heading size="s" as="p" className="self-end tracking-[-0.14px] text-center">
-                              Support
-                            </Heading>
-                          </div>
-                        </a>
-                      </div>
-                      */}
                       <HeaderMenu/>
                     </div>
-
-                    {/* <div className="flex justify-between w-[13%] md:w-full mr-[60px] gap-5 md:mr-0">
-                      <Button shape="circle" className="w-[40px] !rounded-[20px]">
-                        <Img src="images/img_user.svg" />
-                      </Button>
-                      <Button shape="circle" className="w-[40px] !rounded-[20px]">
-                        <Img src="images/img_discord.svg" />
-                      </Button>
-                      <Button shape="circle" className="w-[40px] !rounded-[20px]">
-                        <Img src="images/img_airplane.svg" />
-                      </Button>
-                    </div>
-                    */}
                     <SocialButtons/>
                   </div>
                 </header>
-                {/* <Img
+                {/*<Img
                   src="images/img__875x1440.png"
                   alt="image_one"
                   className="h-[875px] w-full md:h-auto mt-[-81px] opacity-0.22 relative object-cover font-franie"
-                />
-                  */}
+  />*/}
+                
               </div>
-              <div className="flex justify-center w-[10%] md:w-full mt-[-93px] md:p-5 relative">
-                <div className="flex flex-col items-center w-full mt-1.5 gap-[22px]">
-                  <div className="w-[16%] md:w-full p-2.5 border-gray-900_03 border-[7px] border-solid bg-gray-900_02 rounded-[10px]">
-                    <div className="h-[16px] w-[4px] mb-3 bg-blue-400 rounded-sm" />
-                  </div>
-                  <Heading size="xs" as="h1" className="text-center">
-                    SCROLL TO EXPLORE
-                  </Heading>
-                </div>
-              </div>
+              
             </div>
             
             <Heading
@@ -105,7 +50,7 @@ export default function AIHumanityPage() {
                   Welcome to <br />
                 </>
               </span>
-              <span className="text-transparent font-semibold bg-gradient5 bg-clip-text">AIHumanity&nbsp;</span>
+              <span className="text-transparent font-semibold bg-gradient5 bg-clip-text">AI Humanity&nbsp;</span>
               <span className="text-white-A700 font-semibold">Protocol</span>
             </Heading>
             <Img
@@ -114,17 +59,32 @@ export default function AIHumanityPage() {
               className="h-[521px] w-[31%] top-[16%] right-0 left-0 m-auto object-cover absolute"
             />
           </div>
-        </div>
+          <div style={{ maxWidth: 'fit-content', marginLeft: 'auto', marginRight: 'auto' }}>
+            
+          
+          <div className="flex justify-center w-[10%] md:w-full mt-[-93px] md:p-5 relative">
+            <div className="flex flex-col items-center w-full mt-1.5 gap-[22px]">
+              <div className="w-[16%] md:w-full p-2.5 border-gray-900_03 border-[7px] border-solid bg-gray-900_02 rounded-[10px]">
+                <div className="h-[16px] w-[4px] mb-3 bg-blue-400 rounded-sm" />
+              </div>
+              <Heading size="xs" as="h1" className="text-center">
+                SCROLL TO EXPLORE
+              </Heading>
+            </div>
+          </div>
+          </div>
+          </div>
+        </section>
         <section>
         <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
           <Text
             as="p"
             className="mt-[31px] px-2 py-1 !text-gray-300 tracking-[-0.04px] uppercase border border-solid white_A700_1c_white_A700_1c_border bg-gradient rounded-[18px]"
           >
-            &#123; Why AIHumanity &#125;
+            &#123; Why AI Humanity &#125;
           </Text>
           <Heading size="3xl" as="h2" className="w-[88%] md:w-full mb-[31px] !text-gray-300 leading-[120%]">
-            <span className="text-gray-300">AIHumanity champions a&nbsp;</span>
+            <span className="text-gray-300">AI Humanity champions a&nbsp;</span>
             <span className="text-transparent bg-gradient5 bg-clip-text">
               human-centric AI approach that prioritizes ethical values, humanity, and societal benefits.
             </span>
@@ -175,7 +135,7 @@ export default function AIHumanityPage() {
               &#123; Ecosystem &#125;
             </Button>
             <Heading size="lg" as="h2" className="!text-gray-300 leading-[140%]">
-              AIHumanity ecosystem through the DePin subsystem, AI Accountability protocol, and DeSci subsystem combined
+              AI Humanity ecosystem through the DePin subsystem, AI Accountability protocol, and DeSci subsystem combined
               with $AIH token incentives, aims at promoting the democratization of AI and providing the best way to
               handle the relationship between AI and humans.
             </Heading>
@@ -412,39 +372,7 @@ export default function AIHumanityPage() {
             </Heading>
           </div>
         </div>
-        <footer className="flex sm:flex-col justify-between items-center gap-5 p-20 md:p-5 bg-black-900_02">
-          <div className="flex flex-col w-[26%] sm:w-full ml-10 gap-6 md:ml-0">
-            <div className="flex items-center w-[44%] md:w-full gap-[9px]">
-              <Img src="images/img_television.svg" alt="television_five" className="h-[28px]" />
-              <Img src="images/img_settings.svg" alt="settings_three" className="h-[26px]" />
-            </div>
-            <Text size="xs" as="p" className="!text-white-A700 !font-manrope leading-[140%]">
-              <>
-                San Francisco Bay, USA
-                <br />
-                Email: support@creataai.com
-                <br />
-                Phone: +1 408 xxx xxxx (masked)
-              </>
-            </Text>
-          </div>
-          <div className="flex flex-col items-end w-[18%] sm:w-full mr-10 gap-[46px] md:mr-0">
-            <div className="flex justify-between w-[80%] md:w-full gap-5">
-              <Button shape="circle" className="w-[40px] !rounded-[20px]">
-                <Img src="images/img_user.svg" />
-              </Button>
-              <Button shape="circle" className="w-[40px] !rounded-[20px]">
-                <Img src="images/img_discord.svg" />
-              </Button>
-              <Button shape="circle" className="w-[40px] !rounded-[20px]">
-                <Img src="images/img_airplane.svg" />
-              </Button>
-            </div>
-            <Text size="xs" as="p" className="!text-white-A700 !font-manrope">
-              Copyright © AIHumanityProtocol 2024
-            </Text>
-          </div>
-        </footer>
+      <FooterSection/>
       </div>
     </>
   );
