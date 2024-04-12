@@ -9,7 +9,7 @@ import SocialButtons from "components/SocialButtons";
 import FooterSection from "components/FooterSection";
 import TSParticle from "components/Background/TSParticle";
 import Scene from "components/Background/ParticleShaders";
-
+import CarouselSection from "components/CarouselSection";
 
 export default function AIHumanityPage() {
   /*const canvas = useMemo(() => document.getElementById("scene")
@@ -203,6 +203,10 @@ export default function AIHumanityPage() {
           </div>
         </section>
         <section>
+          <CarouselSection />
+        </section>
+        
+        {/*  <section>
         <div className="h-[875px] p-[200px] md:p-5 bg-black-900_02 relative">
           <div className="flex justify-center w-full bottom-[38%] right-0 left-0 px-[155px] m-auto md:px-5 absolute max-w-[1040px]">
             <Heading size="5xl" as="h2" className="!text-gray-300 text-center">
@@ -212,6 +216,7 @@ export default function AIHumanityPage() {
           <div className="h-[325px] w-[63%] bottom-[29%] right-0 left-0 m-auto border-black-900_7e border border-solid bg-gradient1 backdrop-opacity-[0.4] blur-[210.00px] absolute" />
           </div>
         </section>
+*/}
         <section>
         <div className="flex md:flex-col justify-between items-center gap-5 p-[200px] md:p-5 bg-black-900_02">
           <div className="flex flex-col w-[65%] md:w-full gap-4 my-11">

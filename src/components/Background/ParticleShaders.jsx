@@ -144,6 +144,7 @@ const Scene = () => {
             <ambientLight intensity={0.5} />
             <FBOParticles />
             <OrbitControls enableZoom={false} />
+            {/*<pointLight position={[10, 10, 10]} /> */}
         </Canvas>
     );
 };
