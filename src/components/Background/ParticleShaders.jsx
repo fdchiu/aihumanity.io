@@ -2,6 +2,7 @@ import { OrbitControls, useFBO } from "@react-three/drei";
 import { Canvas, useFrame, extend, createPortal } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
+import * as TWEEN from "three/addons/libs/tween.module.js";
 //import './ParticleShaderFiles/scene.css';
 
 import SimulationMaterial from './ParticleShaderFiles/SimulationMaterial';
@@ -14,7 +15,7 @@ import fragmentShader from "!!raw-loader!./ParticleShaderFiles/fragmentShader.gl
 extend({ SimulationMaterial: SimulationMaterial });
 
 const FBOParticles = () => {
-    const size = 128;
+    const size = 256;
 
     // This reference gives us direct access to our points
     const points = useRef();
@@ -24,7 +25,8 @@ const FBOParticles = () => {
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 1 / Math.pow(2, 53), 1);
     const positions = new Float32Array([-1, -1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0]);
     const uvs = new Float32Array([0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0]);
-
+    //const controls = new OrbitControls(camera, renderer.domElement);
+    
     const renderTarget = useFBO(size, size, {
         minFilter: THREE.NearestFilter,
         magFilter: THREE.NearestFilter,
@@ -32,6 +34,30 @@ const FBOParticles = () => {
         stencilBuffer: false,
         type: THREE.FloatType,
     });
+
+    function zoom(constant) {
+        camera.position.x = camera.position.x * constant;
+        camera.position.y = camera.position.y * constant;
+        camera.position.z = camera.position.z * constant;
+    }
+    function tween(inout) { // in - true, out - false
+
+        /*let desiredDistance = inout ? controls.minDistance : controls.maxDistance;
+
+        let dir = new THREE.Vector3();
+        camera.getWorldDirection(dir);
+        dir.negate();
+        let dist = controls.getDistance();
+
+        new TWEEN.Tween({ val: dist })
+            .to({ val: desiredDistance }, 1000)
+            .onUpdate(val => {
+                camera.position.copy(controls.target).addScaledVector(dir, val.val);
+            })
+            .start();
+            */
+    }
+
 
     // Generate our positions attributes array
     const particlesPosition = useMemo(() => {
@@ -107,9 +133,14 @@ const FBOParticles = () => {
     );
 };
 
+function handleScroll() {
+    console.log("handleScroll")
+    FBOParticles.zoom(2.0)
+}
+
 const Scene = () => {
     return (
-        <Canvas camera={{ position: [1.5, 1.5, 2.5] }}>
+        <Canvas camera={{ position: [1.5, 1.5, 2.5] }} onScroll={()=>handleScroll()}>
             <ambientLight intensity={0.5} />
             <FBOParticles />
             <OrbitControls enableZoom={false} />
