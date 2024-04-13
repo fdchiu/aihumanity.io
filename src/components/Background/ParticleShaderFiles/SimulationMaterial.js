@@ -4,16 +4,17 @@ import simulationVertexShader from '!!raw-loader!./simulationVertexShader.glsl';
 import simulationFragmentShader from '!!raw-loader!./simulationFragmentShader.glsl';
 import * as THREE from "three";
 
-const getRandomDataSphere = (width, height) => {
+const getRandomDataSphere = (width, height, distanceFactor) => {
     // we need to create a vec4 since we're passing the positions to the fragment shader
     // data textures need to have 4 components, R, G, B, and A
     const length = width * height * 4
     const data = new Float32Array(length);
+    //console.log(`in material`)
 
     for (let i = 0; i < length; i++) {
         const stride = i * 4;
 
-        const distance = Math.sqrt((Math.random())) * 2.0;
+        const distance = Math.sqrt((Math.random())) * distanceFactor;
         const theta = THREE.MathUtils.randFloatSpread(360);
         const phi = THREE.MathUtils.randFloatSpread(360);
 
@@ -42,9 +43,10 @@ const getRandomDataBox = (width, height) => {
 };
 
 class SimulationMaterial extends THREE.ShaderMaterial {
-    constructor(size) {
+    constructor(size, distanceFactor) {
+        var distanceFactor
         const positionsTextureA = new THREE.DataTexture(
-            getRandomDataSphere(size, size),
+            getRandomDataSphere(size, size, distanceFactor),
             size,
             size,
             THREE.RGBAFormat,

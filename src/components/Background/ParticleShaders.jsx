@@ -1,6 +1,6 @@
 import { OrbitControls, useFBO } from "@react-three/drei";
 import { Canvas, useFrame, extend, createPortal } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, forwardRef, useImperativeHandle, useState, Fragment } from "react";
 import * as THREE from "three";
 import * as TWEEN from "three/addons/libs/tween.module.js";
 //import './ParticleShaderFiles/scene.css';
@@ -11,11 +11,13 @@ import SimulationMaterial from './ParticleShaderFiles/SimulationMaterial';
 import vertexShader from "!!raw-loader!./ParticleShaderFiles/vertexShader.glsl";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import fragmentShader from "!!raw-loader!./ParticleShaderFiles/fragmentShader.glsl";
+import state from "pages/AIHumanity/state";
 
 extend({ SimulationMaterial: SimulationMaterial });
 
-const FBOParticles = () => {
+const FBOParticles = forwardRef((props, ref) =>{
     const size = 256;
+    const [distanceFactor, setDistanceFactor] = useState(0.5)
 
     // This reference gives us direct access to our points
     const points = useRef();
@@ -26,7 +28,19 @@ const FBOParticles = () => {
     const positions = new Float32Array([-1, -1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0]);
     const uvs = new Float32Array([0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0]);
     //const controls = new OrbitControls(camera, renderer.domElement);
-    
+    useImperativeHandle(ref, () => {
+        return {
+            zoomIn(event) {
+                let factor = (event / 200 + 2.0)
+                setDistanceFactor(factor)
+                //console.log(`top3:${event}`)
+            },
+            zoomOut(event) {
+
+            }
+        };
+    }, []);
+
     const renderTarget = useFBO(size, size, {
         minFilter: THREE.NearestFilter,
         magFilter: THREE.NearestFilter,
@@ -35,11 +49,14 @@ const FBOParticles = () => {
         type: THREE.FloatType,
     });
 
+    // does not work, z always 0
     function zoom(constant) {
-        camera.position.x = camera.position.x * constant;
-        camera.position.y = camera.position.y * constant;
+        //camera.position.x = camera.position.x * constant;
+        //camera.position.y = camera.position.y * constant;
         camera.position.z = camera.position.z * constant;
+        console.log(`${camera.position.z}`)
     }
+
     function tween(inout) { // in - true, out - false
 
         /*let desiredDistance = inout ? controls.minDistance : controls.maxDistance;
@@ -88,13 +105,22 @@ const FBOParticles = () => {
         points.current.material.uniforms.uPositions.value = renderTarget.texture;
 
         simulationMaterialRef.current.uniforms.uTime.value = clock.elapsedTime;
+        simulationMaterialRef.current.distanceFactor = distanceFactor;
     });
+
+    /*useImperativeHandle(ref, () => ({
+        scrolled: (event) => {
+            //console.log(`top2:${event}`)
+            zoom(0.5)
+        }
+    })); */
+
 
     return (
         <>
             {createPortal(
                 <mesh>
-                    <simulationMaterial ref={simulationMaterialRef} args={[size]} />
+                    <simulationMaterial ref={simulationMaterialRef} args={[size, distanceFactor]} />
                     <bufferGeometry>
                         <bufferAttribute
                             attach="attributes-position"
@@ -131,22 +157,51 @@ const FBOParticles = () => {
             </points>
         </>
     );
-};
+});
 
-function handleScroll() {
-    console.log("handleScroll")
-    FBOParticles.zoom(2.0)
-}
 
-const Scene = () => {
+const Scene = forwardRef((prop, ref) => {
+    const canvasRef = useRef(null)
+    const particlesRef = useRef(null)
+    const lightRef = useRef()
+    const orbitControlRef = useRef()
+    const testDivRef = useRef()
+    const [offset, setOffset] = useState(0)
+
+    useImperativeHandle(ref, () => {
+        return {
+            zoomIn(event) {
+                setOffset(event)
+                //console.log(`top2:${event}`)            
+            }
+        };
+    }, []);
+
+    const zoomFactor = useMemo(() => {
+        //console.log(`top:${state.top.current}`)
+        //return state.top.current
+    }, [state])
+
+    useEffect(() => {
+        //particlesRef.current.zoom(0.5)
+        //console.log(`top1:${state.top.current}`)
+        //if (particlesRef != null && particlesRef != undefined) {
+            
+        //}
+        //orbitControlRef.current.enableZoom(true)
+        //console.log(`${testDivRef.current}`)
+        //console.log(`${orbitControlRef.current}`)
+        //particlesRef.current.zoomIn(0.5)
+    }, [])
+
     return (
-        <Canvas camera={{ position: [1.5, 1.5, 2.5] }} onScroll={()=>handleScroll()}>
-            <ambientLight intensity={0.5} />
-            <FBOParticles />
-            <OrbitControls enableZoom={false} />
+        <Canvas camera={{ position: [1.5, 1.5, 2.5] }} ref={canvasRef}>
+            <ambientLight intensity={0.5} ref={lightRef} />
+            <FBOParticles ref={ref} />
+            <OrbitControls enableZoom={false} ref={orbitControlRef} />
             {/*<pointLight position={[10, 10, 10]} /> */}
         </Canvas>
     );
-};
+});
 
 export default Scene;
