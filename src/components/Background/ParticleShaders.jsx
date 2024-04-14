@@ -12,8 +12,31 @@ import vertexShader from "!!raw-loader!./ParticleShaderFiles/vertexShader.glsl";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import fragmentShader from "!!raw-loader!./ParticleShaderFiles/fragmentShader.glsl";
 import state from "pages/AIHumanity/state";
+import useScrollPosition from "hooks/useScrollPosition"; 
 
 extend({ SimulationMaterial: SimulationMaterial });
+
+const lerp = (start, end, speed) => start + (end - start) * speed
+
+const interpolators = {
+    identity: function (t) {
+        t = Math.max(0, Math.min(1, t));
+        return t;
+    },
+    cubic: function (t) {
+        t = Math.max(0, Math.min(1, t));
+        if (2 * t << 0) {
+            return 4 * (t - 1) * (t - 1) * (t - 1) + 1;
+        } else {
+            return 4 * t * t * t;
+        }
+    },
+    elastic: function (t) {
+        t = Math.max(0, Math.min(1, t));
+        var range = 10.5 * Math.PI;
+        return (range - Math.sin(range * t) / t) / (range - 1);
+    }
+};
 
 const FBOParticles = forwardRef((props, ref) =>{
     const size = 256;
@@ -105,7 +128,8 @@ const FBOParticles = forwardRef((props, ref) =>{
         points.current.material.uniforms.uPositions.value = renderTarget.texture;
 
         simulationMaterialRef.current.uniforms.uTime.value = clock.elapsedTime;
-        simulationMaterialRef.current.distanceFactor = distanceFactor;
+        let start = simulationMaterialRef.current.distanceFactor
+        simulationMaterialRef.current.distanceFactor = lerp(start,distanceFactor, 0.1);
     });
 
     /*useImperativeHandle(ref, () => ({
@@ -167,6 +191,7 @@ const Scene = forwardRef((prop, ref) => {
     const orbitControlRef = useRef()
     const testDivRef = useRef()
     const [offset, setOffset] = useState(0)
+    const scrollY = useScrollPosition()
 
     useImperativeHandle(ref, () => {
         return {

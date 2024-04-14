@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Text, Button, Img, Heading } from "../../components";
 import { gsap, Elastic } from "gsap/gsap-core";
@@ -11,8 +11,14 @@ import TSParticle from "components/Background/TSParticle";
 import Scene from "components/Background/ParticleShaders";
 import CarouselSection from "components/CarouselSection";
 import state from "./state";
+import useScrollPosition from "hooks/useScrollPosition";
+import GsapH from "components/Animation/GSAPSection1/GsapH";
+import GsapTest from "components/Animation/GSAPSection1/GsapTest";
 
 export default function AIHumanityPage() {
+  const scrollY = useScrollPosition()
+  const [showScrollHint, setShowScrollHint] = useState(true)
+
   /*const canvas = useMemo(() => document.getElementById("scene")
   , [])
   
@@ -109,9 +115,14 @@ export default function AIHumanityPage() {
   const scrollArea = useRef()
 
   const onScroll = (e) => {
-    (state.top.current = e.target.scrollTop);
+    state.top.current = e.target.scrollTop;
     //console.log(`${state.top.current}`)
     particleElement.current.zoomIn(state.top.current);
+    if (state.top.current > 100) {
+      setShowScrollHint(false)
+    } else {
+      setShowScrollHint(true)
+    }
   }
 
   useEffect(() => void onScroll({ target: scrollArea.current }), [])
@@ -185,20 +196,29 @@ export default function AIHumanityPage() {
           </div>
           <div style={{ maxWidth: 'fit-content', marginLeft: 'auto', marginRight: 'auto' }}>
             
-          
-          <div className="flex justify-center w-[10%] md:w-full mt-[-93px] md:p-5 relative">
-            <div className="flex flex-col items-center w-full mt-1.5 gap-[22px]">
-              <div className="w-[16%] md:w-full p-2.5 border-gray-900_03 border-[7px] border-solid bg-gray-900_02 rounded-[10px]">
-                <div className="h-[16px] w-[4px] mb-3 bg-blue-400 rounded-sm" />
-              </div>
-              <Heading size="xs" as="h1" className="text-center">
-                SCROLL TO EXPLORE
-              </Heading>
-            </div>
+              {
+                showScrollHint ?
+                  <div className="flex justify-center w-[10%] md:w-full mt-[-93px] md:p-5 relative">
+                    <div className="flex flex-col items-center w-full mt-1.5 gap-[22px]">
+                      <div className="w-[16%] md:w-full p-2.5 border-gray-900_03 border-[7px] border-solid bg-gray-900_02 rounded-[10px]">
+                        <div className="h-[16px] w-[4px] mb-3 bg-blue-400 rounded-sm" />
+                      </div>
+                      <Heading size="xs" as="h1" className="text-center">
+                        SCROLL TO EXPLORE
+                      </Heading>
+                    </div>
+                  </div>
+                  : <>                   
+                  </>
+              }
           </div>
-            </div>
             
           </div>
+        </section>
+        <section>
+          <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
+            <GsapTest />
+            </div>
         </section>
         <section>
         <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
