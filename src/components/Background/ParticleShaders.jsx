@@ -183,6 +183,21 @@ const FBOParticles = forwardRef((props, ref) =>{
     );
 });
 
+function CameraAnimation(props) {
+    useFrame(state => {
+        if (props.started) {
+            state.camera.lookAt(0, 0, 0);
+            state.camera.position.lerp(new THREE.Vector3(6, 6, 1), 1);
+
+            /*const lookAtInitial = new THREE.Vector3(0, 0, 0);
+            const lookAtTo = new THREE.Vector3(3, 1, 10);
+
+            camera.lookAt(lookAtInitial.lerp(lookAtTo, 0.03));*/
+        };
+    })
+
+    return null;
+}
 
 const Scene = forwardRef((prop, ref) => {
     const canvasRef = useRef(null)
@@ -224,6 +239,7 @@ const Scene = forwardRef((prop, ref) => {
             <ambientLight intensity={0.5} ref={lightRef} />
             <FBOParticles ref={ref} />
             <OrbitControls enableZoom={false} ref={orbitControlRef} />
+            {/*} <CameraAnimation started={true}/> */}
             {/*<pointLight position={[10, 10, 10]} /> */}
         </Canvas>
     );

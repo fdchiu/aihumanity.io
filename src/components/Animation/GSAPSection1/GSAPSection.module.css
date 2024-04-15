@@ -1,0 +1,136 @@
+html {
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+body {
+  overflow-y: visible;
+  position: relative;
+  overflow-x: hidden;
+}
+html,
+body {
+  margin: 0;
+}
+
+.containerGsap {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.containerHorizontal {
+  width: 400vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: yellow;
+}
+
+.lastContainer {
+  display: flex;
+  height: 100vh;
+  background: yellow;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+}
+.red {
+  background: blue;
+}
+.red {
+  background: red;
+}
+.orange {
+  background: orange;
+}
+.purple {
+  background: purple;
+}
+.blue {
+  background-color: blue;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  margin: 10px;
+  color: aqua;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  margin: 10px;
+  color: white;
+}
+
+.gsapsection {
+  width: 100vw;
+  height: 100vh;
+  color: black;
+}
+
+.gsapwrapper {
+  display: flex;
+  height: 100vh;
+  width: 200vw;
+  flex-wrap: nowrap;
+  z-index: 0;
+}
+
+.background {
+  flex-shrink: 0;
+  height: 100%;
+  width: calc(var(--vH) * 300.128617363);
+  position: relative;
+}
+
+.background__inner {
+  z-index: -1;
+  padding-left: 60px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: calc(100% - 60px);
+  height: 100%;
+}
+
+.background__inner--image {
+  transform-origin: top left;
+  transform: scale(1.5);
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.tracklist {
+  background-color: var(--bg-main-color);
+  box-shadow: 0 0 10px rgb(0 0 0 / 35%);
+}
