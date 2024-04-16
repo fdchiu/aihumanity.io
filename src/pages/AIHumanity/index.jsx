@@ -20,9 +20,10 @@ import { ScrollTrigger } from "gsap/all";
 import LocomotiveScroll from "locomotive-scroll";
 import HorizontalSection from "components/HorizontalSection";
 import VerticalScrollSection from "components/VerticalScrollSection"
+import Scroller from "components/ReactScroller/Scroller";
+import GsapSection2 from "components/Animation/GSAPSection1/GsapSection2";
 
 gsap.registerPlugin(ScrollTrigger);
-
 
 export default function AIHumanityPage() {
   const scrollY = useScrollPosition()
@@ -77,14 +78,14 @@ export default function AIHumanityPage() {
     }
   }
 
-  useEffect(() => void onScroll({ target: scrollArea.current }), [])
+  //useEffect(() => void onScroll({ target: scrollArea.current }), [])
 
-  useEffect(() => {
+  /*useEffect(() => {
    // const png = new Image();
    // png.src = "images/Ellipse33.png"
     //png.src = "data:image/png;base64,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";
     //png.onload = drawScene(png);
-  })
+  })*/
   const particleElement = useRef()
 
   return (
@@ -93,7 +94,7 @@ export default function AIHumanityPage() {
         <title>AI Humanity</title>
         <meta name="description" content="Web site created using create-react-app" />
       </Helmet>
-      <div className="w-full sectionScroller" onScroll={onScroll} ref={scrollArea}>
+      <div className="w-full sectionScroller" /*onScroll={onScroll}*/ ref={scrollArea}>
         {/* this main section was used for llocomotive scroll which has a jumping effect and contradict with canvas particle */}
         <main ref={(el) => (containerRef = el)}
           data-scroll-container
@@ -114,11 +115,6 @@ export default function AIHumanityPage() {
                     <SocialButtons/>
                   </div>
                 </header>
-                {/*<Img
-                  src="images/img__875x1440.png"
-                  alt="image_one"
-                  className="h-[875px] w-full md:h-auto mt-[-81px] opacity-0.22 relative object-cover font-franie"
-  />*/}
                   {/*  <ParticleBackground/>
                   <TSParticle/> 
 <Scene /> */}
@@ -187,9 +183,10 @@ export default function AIHumanityPage() {
           </Heading>
           </div>
         </section>
-        <section>
-          <CarouselSection />
-        </section>
+          {/*}        <section>
+            <CarouselSection />
+             <Scroller/> 
+          </section> */}
         
         {/*  <section>
         <div className="h-[875px] p-[200px] md:p-5 bg-black-900_02 relative">
@@ -202,36 +199,13 @@ export default function AIHumanityPage() {
           </div>
         </section>
 */}
-          {true ?
-            <section>
-              <div className="flex md:flex-col justify-between items-center gap-5 p-[200px] md:p-5 bg-black-900_02">
-                <div className="flex flex-col w-[65%] md:w-full gap-4 my-11">
-                  <div className="h-[80px] w-[40%] relative">
-                    <div className="flex justify-center w-[45%] bottom-[0.00px] right-[0.00px] p-[7px] m-auto border border-solid white_A700_1c_white_A700_1c_border bg-light_blue-A400 absolute rounded-[5px]">
-                      <Img src="images/img_.svg" alt="image_three" className="self-start h-[28px]" />
-                    </div>
-                    <Button
-                      color="light_blue_A700"
-                      size="md"
-                      className="left-[0.00px] top-[0.50px] m-auto tracking-[-0.04px] uppercase font-medium border border-solid white_A700_1c_white_A700_1c_border min-w-[209px] absolute rounded-[5px]"
-                    >
-                      &#123; The Solution &#125;
-                    </Button>
-                  </div>
-                  <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
-                    A cutting-edge protocol ensuring AI operates with ethical standards and human values.
-                  </Heading>
-                </div>
-                <div className="h-[308px] w-[308px] md:p-5 bg-blue-200 rounded-[154px]" />
-              </div>
-            </section>
-            :
-            <section>
-              {/*<div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02"> */}
-              <GsapSection1 />
           
-            </section>
-          }
+            
+            
+          {/*<div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02"> */}
+          <section>
+            < GsapSection1/>     
+          </section>
           {
             false?
           
@@ -239,7 +213,82 @@ export default function AIHumanityPage() {
               <VerticalScrollSection />
             </section>
           :<></>
-        }
+          }
+          
+          {/* these sections will be animated */}
+
+          <section>
+            <div className="flex md:flex-col justify-between items-center gap-5 p-[200px] md:p-5 bg-black-900_02">
+              <div className="flex flex-col w-[65%] md:w-full gap-4 my-11">
+                <div className="h-[80px] w-[40%] relative">
+                  <div className="flex justify-center w-[45%] bottom-[0.00px] right-[0.00px] p-[7px] m-auto border border-solid white_A700_1c_white_A700_1c_border bg-light_blue-A400 absolute rounded-[5px]">
+                    <Img src="images/robot_human.png" alt="image_three" className="self-start h-[28px]" />
+                  </div>
+                  <Button
+                    color="light_blue_A700"
+                    size="md"
+                    className="left-[0.00px] top-[0.50px] m-auto tracking-[-0.04px] uppercase font-medium border border-solid white_A700_1c_white_A700_1c_border min-w-[209px] absolute rounded-[5px]"
+                  >
+                    &#123; The Solution &#125;
+                  </Button>
+                </div>
+                <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
+                  A cutting-edge protocol ensuring AI operates with ethical standards and human values.
+                </Heading>
+              </div>
+              {/*} <div className="h-[308px] w-[308px] md:p-5 bg-blue-200 rounded-[154px]" /> */}
+              <Img src='images/circle0.png' />
+            </div>
+          </section>
+
+          <section>
+            <div className="flex md:flex-col justify-between items-center gap-5 p-[200px] md:p-5 bg-black-900_02">
+              <div className="flex flex-col w-[65%] md:w-full gap-4 my-11">
+                <div className="h-[80px] w-[40%] relative">
+                  <div className="flex justify-center w-[45%] bottom-[0.00px] right-[0.00px] p-[7px] m-auto border border-solid white_A700_1c_white_A700_1c_border bg-light_blue-A400 absolute rounded-[5px]">
+                    <Img src="images/robot_human.png" alt="image_three" className="self-start h-[28px]" />
+                  </div>
+                  <Button
+                    color="light_blue_A700"
+                    size="md"
+                    className="left-[0.00px] top-[0.50px] m-auto tracking-[-0.04px] uppercase font-medium border border-solid white_A700_1c_white_A700_1c_border min-w-[209px] absolute rounded-[5px]"
+                  >
+                    &#123; The Solution &#125;
+                  </Button>
+                </div>
+                <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
+                  A decentralized ecosystem that rewards contributions with $AIH tokens, driving engagement and innovation.
+                </Heading>
+              </div>
+              {/*<div className="h-[308px] w-[308px] md:p-5 bg-blue-200 rounded-[154px]" /> */}
+              <Img src='images/circle1.png' />
+            </div>
+          </section>
+
+          <section>
+            <div className="flex md:flex-col justify-between items-center gap-5 p-[200px] md:p-5 bg-black-900_02">
+              <div className="flex flex-col w-[65%] md:w-full gap-4 my-11">
+                <div className="h-[80px] w-[40%] relative">
+                  <div className="flex justify-center w-[45%] bottom-[0.00px] right-[0.00px] p-[7px] m-auto border border-solid white_A700_1c_white_A700_1c_border bg-light_blue-A400 absolute rounded-[5px]">
+                    <Img src="images/robot_human.png" alt="image_three" className="self-start h-[28px]" />
+                  </div>
+                  <Button
+                    color="light_blue_A700"
+                    size="md"
+                    className="left-[0.00px] top-[0.50px] m-auto tracking-[-0.04px] uppercase font-medium border border-solid white_A700_1c_white_A700_1c_border min-w-[209px] absolute rounded-[5px]"
+                  >
+                    &#123; The Solution &#125;
+                  </Button>
+                </div>
+                <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
+                  A platform that encourages and rewards open source AI LLM model development and science researches for AI democratization.
+                </Heading>
+              </div>
+              {/*<div className="h-[308px] w-[308px] md:p-5 bg-blue-200 rounded-[154px]" /> */}
+              <Img src='images/circle_full.png' />
+            </div>
+          </section>
+
           <section>
         <div className="flex flex-col items-center gap-[60px] p-9 sm:gap-[30px] sm:p-5 bg-black-900_02">
           <div className="flex flex-col items-start w-full mt-6 gap-4 mx-auto max-w-[1040px]">

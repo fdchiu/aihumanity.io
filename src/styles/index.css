@@ -62,15 +62,36 @@ ul {
 .gray_900_04_gray_900_06_border {
   border-image: linear-gradient(121deg, #191c31, #0f1320) 1;
 }
+
+.gsapsection {
+  width: 100vw;
+  height: 100vh;
+  /*width: 1024;
+  height: 600;
+  color: black;*/
+}
+
+.gsapwrapper {
+  display: flex;
+  height: 100vh;
+  /*100vh;*/
+  /*max-height: 549px;*/
+  width: 200vw;
+  flex-wrap: nowrap;
+  /*justify-content: flex-start;*/
+  flex-direction: row !important;
+  /*position: fixed;*/
+}
+
 .sectionScroller {
-  scroll-snap-type: y proximity;
+  /*scroll-snap-type: y proximity;
   max-height: 100vh;
-  overflow-y: scroll;
+  overflow-y: scroll;*/
 }
 
 .sectionScroller section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /*scroll-snap-align: start;
+  scroll-snap-stop: always;*/
 }
 
 /* canvas {
