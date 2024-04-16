@@ -21,7 +21,7 @@ function GsapSection1() {
                         trigger: containerRef.current,
                         pin: true,
                         scrub: true,
-                        snap: 1 / (sections.length - 1),
+                        //snap: 1 / (sections.length - 1),
                         end: () => "+=" + containerRef.current.offsetWidth,
                     },
                 });
@@ -34,7 +34,7 @@ function GsapSection1() {
     return (
         <>
             
-            <div className="gsapwrapper" ref={containerRef}>
+            <div className="gsapwrapper bg-black-900_02" ref={containerRef} >
                 <div className="gsapsection" key="1">
                     <div className="flex md:flex-col justify-between items-center gap-5 p-[200px] md:p-5 bg-black-900_02">
                         <div className="flex flex-col w-[65%] md:w-full gap-4 my-11">
@@ -47,14 +47,14 @@ function GsapSection1() {
                                     size="md"
                                     className="left-[0.00px] top-[0.50px] m-auto tracking-[-0.04px] uppercase font-medium border border-solid white_A700_1c_white_A700_1c_border min-w-[209px] absolute rounded-[5px]"
                                 >
-                                    &#123; The Solution 0 &#125;
+                                    &#123; The Solution &#125;
                                 </Button>
                             </div>
                             <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
                                 A cutting-edge protocol ensuring AI operates with ethical standards and human values.
                             </Heading>
                         </div>
-                        <div className="h-[308px] w-[308px] md:p-5 bg-blue-200 rounded-[154px]" />
+                        <Img src='images/circle0.png' />
                     </div>
 
                 </div>
@@ -70,19 +70,18 @@ function GsapSection1() {
                                     size="md"
                                     className="left-[0.00px] top-[0.50px] m-auto tracking-[-0.04px] uppercase font-medium border border-solid white_A700_1c_white_A700_1c_border min-w-[209px] absolute rounded-[5px]"
                                 >
-                                    &#123; The Solution 2 &#125;
+                                    &#123; The Solution &#125;
                                 </Button>
                             </div>
                             <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
-                                A cutting-edge protocol ensuring AI operates with ethical standards and human values.
+                                A decentralized ecosystem that rewards contributions with $AIH tokens, driving engagement and innovation.
                             </Heading>
                         </div>
-                        <div className="h-[308px] w-[308px] md:p-5 bg-blue-200 rounded-[154px]" />
+                        <Img src='images/circle1.png' />
                     </div>
-
                 </div>
 
-                {/*}   <div className="gsapsection" key="3">
+                <div className="gsapsection" key="3">
                     <div className="flex md:flex-col justify-between items-center gap-5 p-[200px] md:p-5 bg-black-900_02">
                         <div className="flex flex-col w-[65%] md:w-full gap-4 my-11">
                             <div className="h-[80px] w-[40%] relative">
@@ -94,17 +93,17 @@ function GsapSection1() {
                                     size="md"
                                     className="left-[0.00px] top-[0.50px] m-auto tracking-[-0.04px] uppercase font-medium border border-solid white_A700_1c_white_A700_1c_border min-w-[209px] absolute rounded-[5px]"
                                 >
-                                    &#123; The Solution 3 &#125;
+                                    &#123; The Solution &#125;
                                 </Button>
                             </div>
                             <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
-                                A cutting-edge protocol ensuring AI operates with ethical standards and human values.
+                                A platform that encourages and rewards open source AI LLM model development and science researches for AI democratization.
                             </Heading>
                         </div>
-                        <div className="h-[308px] w-[308px] md:p-5 bg-blue-200 rounded-[154px]" />
+                        <Img src='images/circle_full.png' />
                     </div>
 
-    </div> */}
+                </div> 
 
                 </div>
                 

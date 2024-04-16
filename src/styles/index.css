@@ -65,22 +65,16 @@ ul {
 
 .gsapsection {
   width: 100vw;
-  height: 100vh;
-  /*width: 1024;
-  height: 600;
-  color: black;*/
+  height:100vh;
 }
 
 .gsapwrapper {
   display: flex;
   height: 100vh;
-  /*100vh;*/
-  /*max-height: 549px;*/
-  width: 200vw;
+  width: 300vw;
   flex-wrap: nowrap;
   /*justify-content: flex-start;*/
   flex-direction: row !important;
-  /*position: fixed;*/
 }
 
 .sectionScroller {
