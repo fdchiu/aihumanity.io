@@ -1,0 +1,150 @@
+#container-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+    justify-items: center;
+}
+
+#container-hero section:nth-child(even) {
+    background-color: #ff6347;
+}
+
+#container-hero h1 {
+    padding-top: 212px;
+}
+
+#container-hero section {
+    height: 100vh;
+    grid-area: 1 / 1 / 2 / 2;
+    background: #f0f0f0;
+    clip-path: circle(100% at 50% 50%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    width: 100%;
+    padding: 0px 7%;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.logotip {
+    justify-content: center;
+    display: grid;
+    padding-top: 33px;
+}
+
+.we-are p {
+    padding-top: 250px;
+    font-family: General Sans;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: justified;
+}
+
+.we-are h2 {
+    font-family: Barlow Condensed;
+    font-size: 110px;
+    font-weight: 800;
+    line-height: 100px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #212121;
+}
+
+figure {
+    height: 100%;
+    background-color: #212121;
+}
+
+.row .col-lg {
+    position: relative;
+}
+
+.panels {
+    position: absolute;
+    overflow: hidden;
+    height: 280px;
+    width: 100%;
+    margin-top: 50px;
+    left: 0;
+    /*   opacity: 0; */
+    padding: 50px 0px;
+    /*   visibility: hidden; */
+}
+
+.panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #212121;
+    opacity: 0;
+}
+
+.animacija {
+    background-color: #212121;
+    height: 100vh;
+    width: 100% !important;
+    padding-top: 150px;
+}
+
+.animacija h2 {
+    font-family: Barlow;
+    font-size: 200px;
+    font-weight: 600;
+    line-height: 240px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    padding-left: 7%;
+}
+
+.mi-smo h3 {
+    font-family: Barlow;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    padding-top: 40px;
+}
+
+.mi-smo p {
+    font-family: Open Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    padding-right: 7%;
+}
+
+.svg-animacija {
+    padding: 100px 0px;
+}
+
+.svg-animacija svg {
+    max-height: 200px;
+    float: right;
+}
+
+.logo-rotating {
+    float: right;
+}
+
+.spacer {
+    height: 100vh;
+}

@@ -6,7 +6,7 @@ import { Text, Button, Img, Heading } from "../../";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// View demo with min-width: 1200px
+
 function GsapSection3() {
     const containerRef = useRef(null);
     const panalRef = useRef()
@@ -25,18 +25,6 @@ function GsapSection3() {
                     id: "gsapsectionV"+i
                 })
             })
-            /*gsap.to(sections, {
-                xPercent: -100 * (sections.length - 1),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    pin: true,
-                    scrub: true,
-                    //snap: 1 / (sections.length - 1),
-                    end: () => "+=" + containerRef.current.offsetWidth,
-                },
-            });*/
-
             
         }, containerRef);
 
@@ -93,8 +81,5 @@ function GsapSection3() {
         </>
     );
 }
-/*
-
- */
 
 export default GsapSection3;
