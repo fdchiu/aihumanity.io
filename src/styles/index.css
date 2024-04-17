@@ -68,6 +68,10 @@ ul {
   height:100vh;
 }
 
+.gsapsectionV {
+  width: 100vw;
+  height: 100vh;
+}
 .gsapwrapper {
   display: flex;
   height: 100vh;
@@ -77,6 +81,14 @@ ul {
   flex-direction: row !important;
 }
 
+.gsapwrapperV {
+  display: flex;
+  height: 400vh;
+  width: 100vw;
+  flex-wrap: wrap;
+  /*justify-content: flex-start;*/
+  /*flex-direction: column !important; */
+}
 .sectionScroller {
   /*scroll-snap-type: y proximity;
   max-height: 100vh;

@@ -22,6 +22,7 @@ import HorizontalSection from "components/HorizontalSection";
 import VerticalScrollSection from "components/VerticalScrollSection"
 import Scroller from "components/ReactScroller/Scroller";
 import GsapSection2 from "components/Animation/GSAPSection1/GsapSection2";
+import GsapSection3 from "components/Animation/GSAPSection1/GsapSection3";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,7 +183,10 @@ export default function AIHumanityPage() {
             </span>
           </Heading>
           </div>
-        </section>
+          </section>
+          <section>
+            <GsapSection3/>
+          </section>
           {/*}        <section>
             <CarouselSection />
              <Scroller/> 
@@ -206,14 +210,6 @@ export default function AIHumanityPage() {
           <section>
             < GsapSection1/>     
           </section>
-          {
-            false?
-          
-            <section>
-              <VerticalScrollSection />
-            </section>
-          :<></>
-          }
           
           <section>
         <div className="flex flex-col items-center gap-[60px] p-9 sm:gap-[30px] sm:p-5 bg-black-900_02">
