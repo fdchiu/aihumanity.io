@@ -20,11 +20,11 @@ function GsapSection1a() {
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: 'top top',
-                    end: 'bottom top', //+=100%',
+                    end: 'bottom center', //+=100%',
                     pin: true,
                     scrub: true,
                     markers: true,
-                    pinSpacing: false
+                    //pinSpacing: true
                 },
             });
 
@@ -93,9 +93,9 @@ function GsapSection1a() {
                             </div>
                         </div>
                     </div>
-                    
-                    <div className="gsapring-animation p-[120px]  ">
-                    <Img src='images/circle_full.png' />
+                   
+                    <div className="gsapring-animation ">
+                        <Img src='images/circle_full.png' width='200' height='200' />
                     </div>
                     </div>
 

@@ -186,32 +186,16 @@ export default function AIHumanityPage() {
           </Heading>
           </div>
           </section>
-          <section>
-            {/*} <GsapSection3/> */}
-          </section>
-          {/*}        <section>
-            <CarouselSection />
-             <Scroller/> 
+          {/*} 
+           <section>
+            <GsapSection3/> 
           </section> */}
-        
-        {/*  <section>
-        <div className="h-[875px] p-[200px] md:p-5 bg-black-900_02 relative">
-          <div className="flex justify-center w-full bottom-[38%] right-0 left-0 px-[155px] m-auto md:px-5 absolute max-w-[1040px]">
-            <Heading size="5xl" as="h2" className="!text-gray-300 text-center">
-              Humanity
-            </Heading>
-          </div>
-          <div className="h-[325px] w-[63%] bottom-[29%] right-0 left-0 m-auto border-black-900_7e border border-solid bg-gradient1 backdrop-opacity-[0.4] blur-[210.00px] absolute" />
-          </div>
-        </section>
-*/}
             
-          {/*<div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02"> */}
           <section>
             < GsapSection1a/>
-          </section>
+</section> 
           
-          <section>
+      <section>
         <div className="flex flex-col items-center gap-[60px] p-9 sm:gap-[30px] sm:p-5 bg-black-900_02">
           <div className="flex flex-col items-start w-full mt-6 gap-4 mx-auto max-w-[1040px]">
             <Button
@@ -234,7 +218,7 @@ export default function AIHumanityPage() {
               <Img src="images/system_diagram.png" />
               </div>                       
             </div>
-          </section>
+        </section>
           <section>
         <div className="flex flex-col gap-[100px] px-14 py-20 md:gap-[75px] md:p-5 sm:gap-[50px] bg-black-900_02">
           <div className="flex flex-col w-full gap-[90px] mx-auto md:gap-[67px] sm:gap-[45px] max-w-[1041px]">
