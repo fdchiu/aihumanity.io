@@ -15,6 +15,8 @@ function GsapSection1a() {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             const textPanels = gsap.utils.toArray('.gsapsection-panel');
+            const imgs = gsap.utils.toArray('.gsapring-animation-img');
+            console.log(`imgs: ${imgs.length}`)
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -28,17 +30,33 @@ function GsapSection1a() {
                 },
             });
 
-            tl.set(textPanels[0],{opacity:1})
+            tl.set(textPanels[0], { opacity: 1 })
+            tl.set(imgs[0], {opacity: 1})
             textPanels.forEach((panel, i) => {
                 // first panel should start already in place, and last panel should end in the center.
                 tl.fromTo(panel,{opacity: 0 }, { opacity: 1, duration: 1 })
-                tl    .to(panel, {
+                    .set(imgs[i], { opacity: 1 })
+                    .to(panel, {
                     yPercent: 0,
                     xPercent: -100,
                     duration: 1,
                     ease: "none"
-                });
+                    })
+                    .to(imgs[i], { rotation: -60})
+                    .to(imgs[i], { autoAlpha: 0, duration: 1 })
+                    //.fromTo(imgs[i], { opacity: 1 }, { opacity: 0, duration: 0.5 })
             });
+           /* imgs.forEach((img, i) => {
+                tl.fromTo(img, { opacity: 0 }, { opacity: 1, duration: 1 })
+            }); */
+            /*tl.to(img,{
+                autoAlpha: 0,
+                    delay: 2,
+                        repeat: -1,
+                            repeatDelay: 1.5,
+                                stagger: { each: 2 }
+            })*/
+
             textPanels.forEach((textPanel, i) => {
                 if (textPanels[i + 1]) {
                     tl.set(textPanel, { autoAlpha: 1 })  //'+=0.5'
@@ -95,7 +113,9 @@ function GsapSection1a() {
                     </div>
                    
                     <div className="gsapring-animation ">
-                        <Img src='images/circle_full.png' width='200' height='200' />
+                        <Img className="gsapring-animation-img" src='images/circle0.png' width='200' height='200' />
+                        <Img className="gsapring-animation-img"  src='images/circle1.png' width='200' height='200' />
+                        <Img className="gsapring-animation-img"  src='images/circle_full.png' width='200' height='200' />
                     </div>
                     </div>
 

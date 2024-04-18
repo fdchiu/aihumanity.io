@@ -118,8 +118,16 @@ ul {
 .gsapring-animation {
   top: 150px;
   right: 100px;
-    position: absolute;
+   /* position: relative; */
   /*height: 100vh;*/
+}
+.gsapring-animation-img {
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    opacity: 0;
+    /*top: 0;
+    left: 0;*/
 }
 
 .gsapwrapper-comboleft {
@@ -135,6 +143,23 @@ ul {
     height: 100vh;  
 }
 
+.circle-container {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg);
+  background: clear;
+}
+.circle-container__progress {
+  fill: none;
+  stroke-linecap: round;
+  stroke: #8CC0DE;;
+  stroke-dasharray: 100 100;
+  stroke-linecap: round;
+  stroke-width: 20px;
+  /* // For animations...
+  // transition: stroke-dashoffset 1s ease-in-out;
+  // will-change: transform; */
+}
 .sectionScroller {
   /*scroll-snap-type: y proximity;
   max-height: 100vh;

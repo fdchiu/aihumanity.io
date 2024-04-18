@@ -1,0 +1,9 @@
+ <svg class="circle-container" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">       
+        <circle
+        class="circle-container__progress"
+        r="16"
+        cx="18"
+        cy="18"
+        style="stroke-dashoffset: 30"
+        ></circle>
+    </svg>
