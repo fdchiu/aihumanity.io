@@ -25,6 +25,8 @@ import GsapSection2 from "components/Animation/GSAPSection1/GsapSection2";
 import GsapSection3 from "components/Animation/GSAPSection1/GsapSection3";
 import GsapSection1a from "components/Animation/GSAPSection1/GsapSection1a";
 import GsapSection1b from "components/Animation/GSAPSection1/GsapSection1b";
+import TopMenuBar from "components/TopMenuBar";
+import ScrollHint from "./ScrollHint";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,8 +108,8 @@ export default function AIHumanityPage() {
           <div className="h-[875px] md:h-auto bg-black-900_02  bg-cover bg-no-repeat" >
             <div className="h-[875px] md:h-auto  bg-cover bg-no-repeat relative"
 >
-            
-            <div className="flex flex-col items-center w-full">
+            <TopMenuBar/>
+            {/*<div className="flex flex-col items-center w-full">
               <div className="self-stretch">
                 <header>
                   <div className="flex md:flex-col justify-between items-center gap-5 p-5 border-white-A700_19 border-b-[0.5px] border-solid">
@@ -118,12 +120,9 @@ export default function AIHumanityPage() {
                     <SocialButtons/>
                   </div>
                 </header>
-                  {/*  <ParticleBackground/>
-                  <TSParticle/> 
-<Scene /> */}
               </div>
               
-            </div>
+            </div> */}
             
               <Heading
               size="4xl"
@@ -146,17 +145,8 @@ export default function AIHumanityPage() {
           <div style={{ maxWidth: 'fit-content', marginLeft: 'auto', marginRight: 'auto' }}>
             
               {
-                showScrollHint ?
-                  <div className="flex justify-center w-[10%] md:w-full mt-[-93px] md:p-5 relative">
-                    <div className="flex flex-col items-center w-full mt-1.5 gap-[22px]">
-                      <div className="w-[16%] md:w-full p-2.5 border-gray-900_03 border-[7px] border-solid bg-gray-900_02 rounded-[10px]">
-                        <div className="h-[16px] w-[4px] mb-3 bg-blue-400 rounded-sm" />
-                      </div>
-                      <Heading size="xs" as="h1" className="text-center">
-                        SCROLL TO EXPLORE
-                      </Heading>
-                    </div>
-                  </div>
+                  showScrollHint ?
+                <ScrollHint/>
                   : <>                   
                   </>
               }
