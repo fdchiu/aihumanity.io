@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 // View demo with min-width: 1200px
 function GsapSection1a() {
     const containerRef = useRef(null);
-    const gsapRingRef = useRef();
+    const ringRef = useRef();
     const textSectionRef = useRef()
 
     useLayoutEffect(() => {
@@ -25,7 +25,7 @@ function GsapSection1a() {
                     end: 'bottom center', //+=100%',
                     pin: true,
                     scrub: true,
-                    markers: true,
+                    //markers: true,
                     //pinSpacing: true
                 },
             });
@@ -43,6 +43,7 @@ function GsapSection1a() {
                             duration: 2,
                             ease: "none"
                         })
+                        .to(ringRef.current, { strokeDashoffset: 70+45 })
                         .to(imgs[i], { rotation: -60 }, { duration: 3 })
                         .to(imgs[i], { autoAlpha: 0, duration: 1 })
                     //.fromTo(imgs[i + 1], { opacity: 0 }, { opacity: 1 }, {duration: 1 })
@@ -121,7 +122,16 @@ function GsapSection1a() {
                     <div className="gsapring-animation ">
                         <Img className="gsapring-animation-img" src='images/circle0.png' width='200' height='200' />
                         <Img className="gsapring-animation-img"  src='images/circle1.png' width='200' height='200' />
-                        <Img className="gsapring-animation-img"  src='images/circle_full.png' width='200' height='200' />
+                        <Img className="gsapring-animation-img" src='images/circle_full.png' width='200' height='200' />
+                        <svg width='200' height='200'  className="circle-container" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle
+                                className="circle-container__progress" ref={ringRef}
+                                r="32"
+                                cx="100"
+                                cy="100"
+                                style={{ strokeDashoffset: 70 }}
+                            ></circle>
+                        </svg>
                     </div>
                     </div>
 
