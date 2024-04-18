@@ -6,7 +6,6 @@ import { Text, Button, Img, Heading } from "../../";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// View demo with min-width: 1200px
 function GsapSection1a() {
     const containerRef = useRef(null);
     const ringRef = useRef();
@@ -15,8 +14,7 @@ function GsapSection1a() {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             const textPanels = gsap.utils.toArray('.gsapsection-panel');
-            const imgs = gsap.utils.toArray('.gsapring-animation-img');
-            console.log(`imgs: ${imgs.length}`)
+            const imgs = gsap.utils.toArray('.gsapring-animation-img');            
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -35,17 +33,17 @@ function GsapSection1a() {
             textPanels.forEach((panel, i) => {
                 // first panel should start already in place, and last panel should end in the center.
                 if (textPanels[i + 1]) {
-                    tl.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: 2 })
+                    tl.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: 10 })
                         .set(imgs[i], { opacity: 1 })
                         .to(panel, {
                             yPercent: 0,
                             xPercent: -100,
-                            duration: 2,
+                            duration: 10,
                             ease: "none"
                         })
-                        .to(ringRef.current, { strokeDashoffset: 70+45 })
-                        .to(imgs[i], { rotation: -60 }, { duration: 3 })
-                        .to(imgs[i], { autoAlpha: 0, duration: 1 })
+                        //.to(ringRef.current, { strokeDashoffset: 70+45 })
+                        .to(imgs[i], { rotation: -60 }, { duration: 10 })
+                        .to(imgs[i], { autoAlpha: 0, duration: 10 })
                     //.fromTo(imgs[i + 1], { opacity: 0 }, { opacity: 1 }, {duration: 1 })
                     //.fromTo(imgs[i], { opacity: 1 }, { opacity: 0, duration: 0.5 })
                 }
@@ -64,17 +62,17 @@ function GsapSection1a() {
                                 stagger: { each: 2 }
             })*/
 
-            textPanels.forEach((textPanel, i) => {
+           /* textPanels.forEach((textPanel, i) => {
                 if (textPanels[i + 1]) {
                     tl.set(textPanel, { autoAlpha: 1 })  //'+=0.5'
                         //.to(textPanels[i + 1], { opacity: 1 }, '<')                    
-                     /*.to(
+                     .to(
                          textPanels,
                             { yPercent: -(100 * (i + 1)), ease: 'none' },
                             '<'
-                        );*/
+                        );
                 }
-            });
+            });*/
             tl.to({}, {}, '+=0.5');
         
 
@@ -123,7 +121,7 @@ function GsapSection1a() {
                         <Img className="gsapring-animation-img" src='images/circle0.png' width='200' height='200' />
                         <Img className="gsapring-animation-img"  src='images/circle1.png' width='200' height='200' />
                         <Img className="gsapring-animation-img" src='images/circle_full.png' width='200' height='200' />
-                        <svg width='200' height='200'  className="circle-container" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        {/*<svg width='200' height='200'  className="circle-container" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <circle
                                 className="circle-container__progress" ref={ringRef}
                                 r="32"
@@ -131,7 +129,7 @@ function GsapSection1a() {
                                 cy="100"
                                 style={{ strokeDashoffset: 70 }}
                             ></circle>
-                        </svg>
+    </svg>*/}
                     </div>
                     </div>
 
