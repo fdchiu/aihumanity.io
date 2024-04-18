@@ -31,21 +31,27 @@ function GsapSection1a() {
             });
 
             tl.set(textPanels[0], { opacity: 1 })
-            tl.set(imgs[0], {opacity: 1})
+            tl.set(imgs[0], { opacity: 1 })
             textPanels.forEach((panel, i) => {
                 // first panel should start already in place, and last panel should end in the center.
-                tl.fromTo(panel,{opacity: 0 }, { opacity: 1, duration: 1 })
-                    .set(imgs[i], { opacity: 1 })
-                    .to(panel, {
-                    yPercent: 0,
-                    xPercent: -100,
-                    duration: 1,
-                    ease: "none"
-                    })
-                    .to(imgs[i], { rotation: -60})
-                    .to(imgs[i], { autoAlpha: 0, duration: 1 })
+                if (textPanels[i + 1]) {
+                    tl.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: 2 })
+                        .set(imgs[i], { opacity: 1 })
+                        .to(panel, {
+                            yPercent: 0,
+                            xPercent: -100,
+                            duration: 2,
+                            ease: "none"
+                        })
+                        .to(imgs[i], { rotation: -60 }, { duration: 3 })
+                        .to(imgs[i], { autoAlpha: 0, duration: 1 })
+                    //.fromTo(imgs[i + 1], { opacity: 0 }, { opacity: 1 }, {duration: 1 })
                     //.fromTo(imgs[i], { opacity: 1 }, { opacity: 0, duration: 0.5 })
-            });
+                }
+                });
+        
+            tl.set(textPanels[textPanels.length-1], {opacity:1})
+            tl.set(imgs[imgs.length-1], { opacity: 1 })
            /* imgs.forEach((img, i) => {
                 tl.fromTo(img, { opacity: 0 }, { opacity: 1, duration: 1 })
             }); */
