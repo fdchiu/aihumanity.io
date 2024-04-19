@@ -22,7 +22,11 @@ function GsapSection1() {
                         pin: true,
                         scrub: true,
                         //snap: 1 / (sections.length - 1),
-                        end: () => "+=" + containerRef.current.offsetWidth,
+                        //end: () => "+=" + containerRef.current.offsetWidth,
+                        markers: true,
+                        end: 'bottom center',
+                        pinSpacing: true
+
                     },
                 });
             
