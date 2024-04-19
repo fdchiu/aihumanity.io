@@ -23,7 +23,7 @@ function GsapSection1() {
                         scrub: true,
                         //snap: 1 / (sections.length - 1),
                         //end: () => "+=" + containerRef.current.offsetWidth,
-                        markers: true,
+                        //markers: true,
                         end: 'bottom center',
                         pinSpacing: true
 
