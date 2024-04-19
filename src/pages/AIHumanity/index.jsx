@@ -28,6 +28,7 @@ import GsapSection1b from "components/Animation/GSAPSection1/GsapSection1b";
 import TopMenuBar from "components/TopMenuBar";
 import ScrollHint from "./ScrollHint";
 import ProductDescription from "components/ProductDescription";
+import MediaQuery from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,26 +120,12 @@ export default function AIHumanityPage() {
         <main ref={(el) => (containerRef = el)}
           data-scroll-container
           className="main" >
+          <section>
+                <TopMenuBar />
+          </section>
         <section>
           <div className="h-[875px] md:h-auto bg-black-900_02  bg-cover bg-no-repeat" >
-            <div className="h-[875px] md:h-auto  bg-cover bg-no-repeat relative"
->
-            <TopMenuBar/>
-            {/*<div className="flex flex-col items-center w-full">
-              <div className="self-stretch">
-                <header>
-                  <div className="flex md:flex-col justify-between items-center gap-5 p-5 border-white-A700_19 border-b-[0.5px] border-solid">
-                    <div className="flex sm:flex-col justify-between items-center w-[48%] md:w-full ml-[60px] gap-5 md:ml-0">
-                      <Logo/>
-                      <HeaderMenu/>
-                    </div>
-                    <SocialButtons/>
-                  </div>
-                </header>
-              </div>
-              
-            </div> */}
-            
+            <div className="h-[875px] md:h-auto  bg-cover bg-no-repeat relative">
               <Heading
               size="4xl"
               as="h2"
@@ -156,25 +143,18 @@ export default function AIHumanityPage() {
                 {/*} <canvas id="scene" /> */}
               <Scene ref={particleElement} />
 
-          </div>
-          <div style={{ maxWidth: 'fit-content', marginLeft: 'auto', marginRight: 'auto' }}>
-            
+              </div>
+                                    
               {
                   showScrollHint ?
                 <ScrollHint/>
                   : <>                   
                   </>
               }
-          </div>
+          
             
           </div>
-        </section>
-        {/*<section>
-          <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
-            <GsapSection1 />
-            </div>
-            
-            </section> */}
+          </section>
         <section>
         <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
           <Text
@@ -196,9 +176,18 @@ export default function AIHumanityPage() {
             <GsapSection3/> 
           </section> 
             
+          <MediaQuery query='(max-width: 768px)'>
+            <section>
+              <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
+                <GsapSection1 />
+              </div>
+            </section>
+          </MediaQuery>
+          <MediaQuery query='(min-width: 768px)'>
           <section>
             < GsapSection1a/>
-</section> 
+            </section> 
+            </MediaQuery>
           
       <section>
         <div className="flex flex-col items-center gap-[60px] p-9 sm:gap-[30px] sm:p-5 bg-black-900_02">

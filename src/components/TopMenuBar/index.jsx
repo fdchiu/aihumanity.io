@@ -3,7 +3,10 @@ import HeaderMenu from "components/HeaderMenu";
 import SocialButtons from "components/SocialButtons";
 
 export default function TopMenuBar() {
-    return (
+    return (    
+            
+        <div className="md:h-auto bg-black-900_02  bg-cover bg-no-repeat relative">
+
         <div className="flex flex-col items-center w-full">
             <div className="self-stretch">
                 <header>
@@ -17,6 +20,8 @@ export default function TopMenuBar() {
                 </header>
             </div>
 
-        </div>
+                </div>
+    </div>
     );
 }
+{/*<div className="h-[875px] md:h-auto bg-black-900_02  bg-cover bg-no-repeat" >*/ }        
