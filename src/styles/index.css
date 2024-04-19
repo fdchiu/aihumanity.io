@@ -144,21 +144,24 @@ ul {
 }
 
 .circle-container {
-  width: 150px;
-  height: 150px;
+  width: 400px;
+  height: 400px;
   transform: rotate(-90deg);
   background: clear;
-}
+    position: absolute;
+      top: 150px;
+      right: 60px;
+    }
 .circle-container__progress {
   fill: none;
-  stroke-linecap: round;
+  stroke-linecap: flat;
   stroke: #8CC0DE;;
   stroke-dasharray: 100 100;
-  stroke-linecap: round;
-  stroke-width: 20px;
-  /* // For animations...
-  // transition: stroke-dashoffset 1s ease-in-out;
-  // will-change: transform; */
+  stroke-width: 30px;
+  stroke-dashoffset: 0;
+   /* For animations... 
+  transition: stroke-dashoffset 1s ease-in-out;
+  will-change: transform;*/
 }
 .sectionScroller {
   /*scroll-snap-type: y proximity;

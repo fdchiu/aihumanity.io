@@ -3,6 +3,7 @@ import "./GSAPSection.module.css"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Text, Button, Img, Heading } from "../../";
+import { Power2 } from "gsap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,8 +15,19 @@ function GsapSection1a() {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             const textPanels = gsap.utils.toArray('.gsapsection-panel');
-            const imgs = gsap.utils.toArray('.gsapring-animation-img');            
+            //const imgs = gsap.utils.toArray('.gsapring-animation-img');
+            var radius = ringRef.current.r.baseVal.value;
+            var circumference = radius * 2 * Math.PI;
 
+            ringRef.current.style.strokeDasharray = `${circumference} ${circumference}`;
+            ringRef.current.style.strokeDashoffset = 150//`${circumference}`;
+            console.log(`radius:${radius} circum:${circumference}`)
+
+            function setProgress(percent) {
+                const offset = circumference - percent / 100 * circumference;
+                ringRef.current.style.strokeDashoffset = offset;
+            }
+            const offset = [120, 80, 0]
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
@@ -29,28 +41,32 @@ function GsapSection1a() {
             });
 
             tl.set(textPanels[0], { opacity: 1 })
-            tl.set(imgs[0], { opacity: 1 })
+            //tl.set(imgs[0], { opacity: 1 })
+            //tl.set(ringRef, { strokeDashoffset:0 })
             textPanels.forEach((panel, i) => {
                 // first panel should start already in place, and last panel should end in the center.
                 if (textPanels[i + 1]) {
                     tl.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: 10 })
-                        .set(imgs[i], { opacity: 1 })
+                        //.set(imgs[i], { opacity: 1 })
+                        //.set(ringRef.current, {strokeDashoffset: offset[i], duration: 5})
+                        .to(ringRef.current, { strokeDashoffset: offset[i], duration: 10, ease: "power2.out" })
                         .to(panel, {
                             yPercent: 0,
                             xPercent: -100,
                             duration: 10,
-                            ease: "none"
+                            ease: "power2.out"
                         })
-                        //.to(ringRef.current, { strokeDashoffset: 70+45 })
-                        .to(imgs[i], { rotation: -60 }, { duration: 10 })
-                        .to(imgs[i], { autoAlpha: 0, duration: 10 })
+                       // .to(imgs[i], { rotation: -60 }, { duration: 10 })
+                       // .to(imgs[i], { autoAlpha: 0, duration: 10 })
                     //.fromTo(imgs[i + 1], { opacity: 0 }, { opacity: 1 }, {duration: 1 })
                     //.fromTo(imgs[i], { opacity: 1 }, { opacity: 0, duration: 0.5 })
+                } else if (i == textPanels.length - 1) {
+                    tl.set(ringRef.current, { strokeDashoffset: 0, duration: 10, ease: "power2.out" })
                 }
                 });
         
             tl.set(textPanels[textPanels.length-1], {opacity:1})
-            tl.set(imgs[imgs.length-1], { opacity: 1 })
+            //tl.set(imgs[imgs.length-1], { opacity: 1 })
            /* imgs.forEach((img, i) => {
                 tl.fromTo(img, { opacity: 0 }, { opacity: 1, duration: 1 })
             }); */
@@ -118,10 +134,11 @@ function GsapSection1a() {
                     </div>
                    
                     <div className="gsapring-animation ">
-                        <Img className="gsapring-animation-img" src='images/circle0.png' width='200' height='200' />
+                        {/*<Img className="gsapring-animation-img" src='images/circle0.png' width='200' height='200' />
                         <Img className="gsapring-animation-img"  src='images/circle1.png' width='200' height='200' />
                         <Img className="gsapring-animation-img" src='images/circle_full.png' width='200' height='200' />
-                        {/*<svg width='200' height='200'  className="circle-container" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    */}
+                        <svg width='200' height='200'  className="circle-container" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <circle
                                 className="circle-container__progress" ref={ringRef}
                                 r="32"
@@ -129,7 +146,7 @@ function GsapSection1a() {
                                 cy="100"
                                 style={{ strokeDashoffset: 70 }}
                             ></circle>
-    </svg>*/}
+                        </svg>
                     </div>
                     </div>
 
