@@ -163,6 +163,15 @@ ul {
   transition: stroke-dashoffset 1s ease-in-out;
   will-change: transform;*/
 }
+
+/* in product section */
+.product-img-anima {
+
+}
+
+.product-final-section{
+
+}
 .sectionScroller {
   /*scroll-snap-type: y proximity;
   max-height: 100vh;

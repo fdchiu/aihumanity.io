@@ -6,7 +6,7 @@ import { Text, Button, Img, Heading } from "../../";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// View demo with min-width: 1200px
+
 function GsapSection1() {
     const containerRef = useRef(null);
 

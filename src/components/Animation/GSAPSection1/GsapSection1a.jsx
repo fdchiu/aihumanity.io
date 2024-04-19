@@ -21,7 +21,7 @@ function GsapSection1a() {
 
             ringRef.current.style.strokeDasharray = `${circumference} ${circumference}`;
             ringRef.current.style.strokeDashoffset = 150//`${circumference}`;
-            console.log(`radius:${radius} circum:${circumference}`)
+            //console.log(`radius:${radius} circum:${circumference}`)
 
             function setProgress(percent) {
                 const offset = circumference - percent / 100 * circumference;

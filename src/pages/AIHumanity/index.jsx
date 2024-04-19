@@ -27,6 +27,7 @@ import GsapSection1a from "components/Animation/GSAPSection1/GsapSection1a";
 import GsapSection1b from "components/Animation/GSAPSection1/GsapSection1b";
 import TopMenuBar from "components/TopMenuBar";
 import ScrollHint from "./ScrollHint";
+import ProductDescription from "components/ProductDescription";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -224,7 +225,8 @@ export default function AIHumanityPage() {
             </div>
         </section>
           <section>
-        <div className="flex flex-col gap-[100px] px-14 py-20 md:gap-[75px] md:p-5 sm:gap-[50px] bg-black-900_02">
+            <ProductDescription/>
+        {/*<div className="flex flex-col gap-[100px] px-14 py-20 md:gap-[75px] md:p-5 sm:gap-[50px] bg-black-900_02">
           <div className="flex flex-col w-full gap-[90px] mx-auto md:gap-[67px] sm:gap-[45px] max-w-[1041px]">
             <div className="flex self-start">
               <Button
@@ -300,7 +302,7 @@ export default function AIHumanityPage() {
               agents and between AI agents and humans, and enforce accountability of AI. ”
             </Heading>
           </div>
-            </div>
+            </div>*/}
             </section>
         <FooterSection />
         </main>
