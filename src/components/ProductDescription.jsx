@@ -20,7 +20,7 @@ export default function ProductDescription() {
                     end:  'bottom bottom', 
                     pin: false,
                     scrub: true,
-                    markers: true,
+                    //markers: true,
                     //pinSpacing: true
                 },
             });

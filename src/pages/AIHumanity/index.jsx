@@ -191,10 +191,10 @@ export default function AIHumanityPage() {
           </Heading>
           </div>
           </section>
-          {/*} 
+          
            <section>
             <GsapSection3/> 
-          </section> */}
+          </section> 
             
           <section>
             < GsapSection1a/>
