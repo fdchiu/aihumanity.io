@@ -1,14 +1,17 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import "./GSAPSection.module.css"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Text, Button, Img, Heading } from "../../";
+import useIsMobile from "hooks/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 function GsapSection1() {
     const containerRef = useRef(null);
+    const isMobile = useIsMobile();
+    const [fontSize, setFontSize] = useState('2xl')
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -35,6 +38,13 @@ function GsapSection1() {
         return () => ctx.revert(); 
     }, []);
 
+    useEffect(() => {
+        if (isMobile) {
+            setFontSize('l')
+            //console.log(`font size: ${fontSize}`)
+        }
+
+    },[])
     return (
         <>
             
@@ -54,9 +64,9 @@ function GsapSection1() {
                                     &#123; The Solution &#125;
                                 </Button>
                             </div>
-                            <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
-                                A cutting-edge protocol ensuring AI operates with ethical standards and human values.
-                            </Heading>
+                                    <Heading size={fontSize} as="h2" className="!text-gray-300 leading-[120%]">
+                                        A cutting-edge protocol ensuring AI operates with ethical standards and human values.
+                                    </Heading>
                         </div>
                         <Img src='images/circle0.png' />
                     </div>
@@ -77,9 +87,9 @@ function GsapSection1() {
                                     &#123; The Solution &#125;
                                 </Button>
                             </div>
-                            <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
-                                A decentralized ecosystem that rewards contributions with $AIH tokens, driving engagement and innovation.
-                            </Heading>
+                                    <Heading size={fontSize} as="h2" className="!text-gray-300 leading-[120%]">
+                                        A decentralized ecosystem that rewards contributions with $AIH tokens, driving engagement and innovation.
+                                    </Heading>
                         </div>
                         <Img src='images/circle1.png' />
                     </div>
@@ -100,7 +110,7 @@ function GsapSection1() {
                                     &#123; The Solution &#125;
                                 </Button>
                             </div>
-                            <Heading size="2xl" as="h2" className="!text-gray-300 leading-[120%]">
+                            <Heading size={fontSize} as="h2" className="!text-gray-300 leading-[120%]">
                                 A platform that encourages and rewards open source AI LLM model development and science researches for AI democratization.
                             </Heading>
                         </div>

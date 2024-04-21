@@ -29,6 +29,8 @@ import TopMenuBar from "components/TopMenuBar";
 import ScrollHint from "./ScrollHint";
 import ProductDescription from "components/ProductDescription";
 import MediaQuery from "react-responsive";
+import useQuery from "hooks/useQuery"
+import useIsMobile from "hooks/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,6 +39,7 @@ export default function AIHumanityPage() {
   const [showScrollHint, setShowScrollHint] = useState(true)
   let containerRef = useRef(null);
   const scrollArea = useRef()
+  const isMobile = useIsMobile()
 
   
   function drawScene(png) {
@@ -125,8 +128,9 @@ export default function AIHumanityPage() {
           </section>
         <section>
           <div className="h-[875px] md:h-auto bg-black-900_02  bg-cover bg-no-repeat" >
-            <div className="h-[875px] md:h-auto  bg-cover bg-no-repeat relative">
-              <Heading
+              <div className="h-[875px] md:h-auto  bg-cover bg-no-repeat relative">
+                <MediaQuery query='(min-width: 768px)'>
+                <Heading                   
               size="4xl"
               as="h2"
               className="w-[81%] h-max left-0 bottom-0 right-0 top-0 m-auto tracking-[-8.25px] text-center leading-[125px] absolute"
@@ -139,7 +143,22 @@ export default function AIHumanityPage() {
               <span className="text-transparent font-semibold bg-gradient5 bg-clip-text">AI Humanity&nbsp;</span>
               <span className="text-white-A700 font-semibold">Protocol</span>
             </Heading>
-                         
+                </MediaQuery>
+                <MediaQuery query='(max-width: 768px)'>
+                  <Heading
+                    size="4xl"
+                    as="h2"
+                    className="w-[81%] h-max left-0 bottom-0 right-0 top-0 m-auto tracking-[-8.25px] text-center leading-[125px] absolute"
+                  >
+                    <span className="text-white-A700 font-semibold">
+                      <>
+                        Welcome to <br />
+                      </>
+                    </span>
+                    <span className="text-transparent font-semibold bg-gradient5 bg-clip-text">AI Humanity&nbsp;</span>
+                    <span className="text-white-A700 font-semibold">Protocol</span>
+                  </Heading>
+                  </MediaQuery>
                 {/*} <canvas id="scene" /> */}
               <Scene ref={particleElement} />
 
@@ -155,7 +174,8 @@ export default function AIHumanityPage() {
             
           </div>
           </section>
-        <section>
+          <section>
+            <MediaQuery query='(min-width: 768px)'>
         <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
           <Text
             as="p"
@@ -165,11 +185,29 @@ export default function AIHumanityPage() {
           </Text>
           <Heading size="3xl" as="h2" className="w-[88%] md:w-full mb-[31px] !text-gray-300 leading-[120%]">
             <span className="text-gray-300">AI Humanity champions a&nbsp;</span>
-            <span className="text-transparent bg-gradient5 bg-clip-text">
+            <span className="text-transparent bg-gradient5 bg-clip-text ">
               human-centric AI approach that prioritizes ethical values, humanity, and societal benefits.
             </span>
           </Heading>
-          </div>
+              </div>
+            </MediaQuery>
+            <MediaQuery query='(max-width: 768px)'>
+              <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
+                <Text
+                  size="xl"
+                  as="p"
+                  className="mt-[31px] px-2 py-1 !text-gray-300 tracking-[-0.04px] uppercase border border-solid white_A700_1c_white_A700_1c_border bg-gradient rounded-[18px]"
+                >
+                  &#123; Why AI Humanity &#125;
+                </Text>
+                <Heading size="xl" as="h2" className="w-[88%] md:w-full mb-[31px] !text-gray-300 leading-[120%]">
+                  <span className="text-gray-300">AI Humanity champions a&nbsp;</span>
+                  <span className="text-transparent bg-gradient5 bg-clip-text">
+                    human-centric AI approach that prioritizes ethical values, humanity, and societal benefits.
+                  </span>
+                </Heading>
+              </div>
+            </MediaQuery>
           </section>
           
            <section>
