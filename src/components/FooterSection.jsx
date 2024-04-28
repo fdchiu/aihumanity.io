@@ -13,7 +13,7 @@ export default function FooterSection() {
                     <>
                         San Francisco Bay Area, USA
                         <br />
-                        Email: support@creataai.com
+                        Email: contact@creataai.com
                         <br />
                         Phone: +1 408 xxx xxxx (masked)
                     </>

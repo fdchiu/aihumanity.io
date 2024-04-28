@@ -39,6 +39,7 @@ function GsapSection3() {
             setFontSize('xl')
             //console.log(`font size: ${fontSize}`)
         }
+        console.log(`fontsize: ${fontSize}`)
 
     }, [])
 

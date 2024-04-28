@@ -3,7 +3,7 @@ import useQuery from "./useQuery";
 
 
 export default function useIsMobile() {
-    const [isMobile, useQueryCall] = useQuery('(min-width: 768px)')
+    const [isNotMobile, useQueryCall] = useQuery('(min-width: 768px)')
     //const [isMobile, setIsMobile] = useState(false)
     //let flag = useQueryCall('(min-width: 768px)')
 
@@ -11,5 +11,5 @@ export default function useIsMobile() {
         //setIsMobile(flag)
     }, []);
 
-    return isMobile;
+    return !isNotMobile;
 } 
