@@ -31,6 +31,7 @@ import ProductDescription from "components/ProductDescription";
 import MediaQuery from "react-responsive";
 import useQuery from "hooks/useQuery"
 import useIsMobile from "hooks/useIsMobile";
+import WhySection from "./WhySection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -174,59 +175,26 @@ export default function AIHumanityPage() {
             
           </div>
           </section>
-          <section>
-            <MediaQuery query='(min-width: 768px)'>
-        <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
-          <Text
-            as="p"
-            className="mt-[31px] px-2 py-1 !text-gray-300 tracking-[-0.04px] uppercase border border-solid white_A700_1c_white_A700_1c_border bg-gradient rounded-[18px]"
-          >
-            &#123; Why AI Humanity &#125;
-          </Text>
-          <Heading size="3xl" as="h2" className="w-[88%] md:w-full mb-[31px] !text-gray-300 leading-[120%]">
-            <span className="text-gray-300">AI Humanity champions a&nbsp;</span>
-            <span className="text-transparent bg-gradient5 bg-clip-text ">
-              human-centric AI approach that prioritizes ethical values, humanity, and societal benefits.
-            </span>
-          </Heading>
-              </div>
-            </MediaQuery>
-            <MediaQuery query='(max-width: 768px)'>
-              <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
-                <Text
-                  size="xl"
-                  as="p"
-                  className="mt-[31px] px-2 py-1 !text-gray-300 tracking-[-0.04px] uppercase border border-solid white_A700_1c_white_A700_1c_border bg-gradient rounded-[18px]"
-                >
-                  &#123; Why AI Humanity &#125;
-                </Text>
-                <Heading size="xl" as="h2" className="w-[88%] md:w-full mb-[31px] !text-gray-300 leading-[120%]">
-                  <span className="text-gray-300">AI Humanity champions a&nbsp;</span>
-                  <span className="text-transparent bg-gradient5 bg-clip-text">
-                    human-centric AI approach that prioritizes ethical values, humanity, and societal benefits.
-                  </span>
-                </Heading>
-              </div>
-            </MediaQuery>
-          </section>
-          
+          <WhySection/>
+                   
            <section>
             <GsapSection3/> 
           </section> 
             
-          <MediaQuery query='(max-width: 768px)'>
-            <section>
-              <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
-                <GsapSection1 />
-              </div>
-            </section>
-          </MediaQuery>
-          <MediaQuery query='(min-width: 768px)'>
-          <section>
-            < GsapSection1a/>
-            </section> 
-            </MediaQuery>
+          {
+            !isMobile ?
+              <section>
+                <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
+                  <GsapSection1 />
+                </div>
+              </section>
           
+              :
+              <section>
+                < GsapSection1a />
+              </section>
+            
+          }
       <section>
         <div className="flex flex-col items-center gap-[60px] p-9 sm:gap-[30px] sm:p-5 bg-black-900_02">
           <div className="flex flex-col items-start w-full mt-6 gap-4 mx-auto max-w-[1040px]">

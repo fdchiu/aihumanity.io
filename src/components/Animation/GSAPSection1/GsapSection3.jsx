@@ -37,9 +37,8 @@ function GsapSection3() {
     useEffect(() => {
         if (isMobile) {
             setFontSize('xl')
-            //console.log(`font size: ${fontSize}`)
         }
-        console.log(`fontsize: ${fontSize}`)
+        //console.log(`fontsize: ${fontSize}`)
 
     }, [])
 
