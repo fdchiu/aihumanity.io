@@ -1,7 +1,5 @@
 
 import React, { useEffect, useMemo, useRef, useState, useLayoutEffect } from "react";
-import MediaQuery from "react-responsive";
-import useQuery from "hooks/useQuery"
 import useIsMobile from "hooks/useIsMobile";
 import PlayMov from "components/Video/PlayMov";
 
