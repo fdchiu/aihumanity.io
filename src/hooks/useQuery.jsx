@@ -24,5 +24,5 @@ export default function useQuery(query) {
         window.matchMedia(query)
     }, []);
 
-    return [!matches, useQueryCall];
+    return [matches, useQueryCall];
 }

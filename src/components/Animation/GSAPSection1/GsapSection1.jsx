@@ -114,7 +114,7 @@ function GsapSection1() {
                                 A platform that encourages and rewards open source AI LLM model development and science researches for AI democratization.
                             </Heading>
                         </div>
-                        <Img src='images/circle_full.png' />
+                        <Img src='images/circle_full.png' height={'50%'} />
                     </div>
 
                 </div> 

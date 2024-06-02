@@ -9,6 +9,7 @@ export default function useIsMobile() {
 
     useEffect(() => {
         //setIsMobile(flag)
+        console.log(`isNotMobile:${isNotMobile}`)
     }, []);
 
     return !isNotMobile;

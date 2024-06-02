@@ -182,7 +182,7 @@ export default function AIHumanityPage() {
           </section> 
             
           {
-            !isMobile ?
+            isMobile ?
               <section>
                 <div className="flex flex-col items-start justify-center pl-[200px] pr-14 gap-4 py-[200px] md:p-5 bg-black-900_02">
                   <GsapSection1 />
