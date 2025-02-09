@@ -9,13 +9,13 @@ export default function SocialButtons() {
 
     return (
         <div className="flex justify-between w-[13%] md:w-full mr-[60px] gap-5 md:mr-0">
-            <Button shape="circle" className="w-[40px] !rounded-[20px]">
+            <Button shape="circle" className="w-[40px] !rounded-[20px]" onClick={() => openPage('https://github.com/aihumanity-io')}>
                 <Img src="images/img_user.svg" />
             </Button>
             <Button shape="circle" className="w-[40px] !rounded-[20px]" onClick={() => openPage('https://discord.gg/dE8dXppYCe')}>
                 <Img src="images/img_discord.svg" />
             </Button>
-            <Button shape="circle" className="w-[40px] !rounded-[20px]" onClick={() => { openPage('https://www.twitter.com/CreataAIArt') }} >
+            <Button shape="circle" className="w-[40px] !rounded-[20px]" onClick={() => { openPage('https://x.com/AIHumanityPro') }} >
                 <Img src="images/img_airplane.svg"/>
             </Button>
     
