@@ -235,12 +235,15 @@ const Scene = forwardRef((prop, ref) => {
     }, [])
 
     return (
-        <Canvas camera={{ position: [1.5, 1.5, 2.5] }} ref={canvasRef}>
+        <Canvas camera={{ position: [1.5, 1.5, 2.5] }} ref={canvasRef}
+           
+        >
             <ambientLight intensity={0.5} ref={lightRef} />
             <FBOParticles ref={ref} />
             <OrbitControls enableZoom={false} ref={orbitControlRef} />
             {/*} <CameraAnimation started={true}/> */}
             {/*<pointLight position={[10, 10, 10]} /> */}
+            
         </Canvas>
     );
 });

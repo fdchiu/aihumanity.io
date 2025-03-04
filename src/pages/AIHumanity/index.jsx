@@ -32,6 +32,8 @@ import MediaQuery from "react-responsive";
 import useQuery from "hooks/useQuery"
 import useIsMobile from "hooks/useIsMobile";
 import WhySection from "./WhySection";
+import SignupModule from "pages/Signup";
+import SignupPopupModule from "pages/SignupPopup";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +43,7 @@ export default function AIHumanityPage() {
   let containerRef = useRef(null);
   const scrollArea = useRef()
   const isMobile = useIsMobile()
+  const [showSignup, setShowSignup] = useState(false);
 
   
   function drawScene(png) {
@@ -127,7 +130,21 @@ export default function AIHumanityPage() {
           <section>
                 <TopMenuBar />
           </section>
-        <section>
+        
+          <section>
+            <div className="flex flex-row items-center gap-5 p-5 bg-black-900_02 z-50">
+
+              <button onClick={() => setShowSignup(true)}
+                /*className="ml-20 bg-blue-500 text-white p-3 rounded shadow-lg animate-bounce"*/
+                className="ml-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-gray-300 p-3 rounded shadow-lg hover:from-blue-600 hover:to-indigo-700 transition duration-300 ease-in-out animate-bounce"
+              /*className=" ml-20 bg-blue-500 text-white p-2 rounded"*/
+              >
+                Waiting List Open
+              </button>
+
+              {/*showSignup && <SignupModule onClose={() => setShowSignup(false)} />*/}
+            </div>
+
           <div className="h-[875px] md:h-auto bg-black-900_02  bg-cover bg-no-repeat" >
               <div className="h-[875px] md:h-auto  bg-cover bg-no-repeat relative">
                 <MediaQuery query='(min-width: 768px)'>
@@ -173,8 +190,11 @@ export default function AIHumanityPage() {
               }
           
             
-          </div>
+            </div>
+            {showSignup && <SignupModule onClose={() => setShowSignup(false)} />}
+
           </section>
+
           <WhySection/>
                    
            <section>
